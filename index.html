@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" color-scheme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,56 +14,94 @@
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <li>
-      <button class="btn__complete">
-        <img src="./images/icon-check.svg" alt="icon check" />
-      </button>
-      <button class="btn__circle active"></button>
-      Jog around the park 3x
-      <button class="btn__close">
-        <img src="./images/icon-cross.svg" alt="icon cross" />
-      </button>
-    </li>
-    <li>
-      <button class="btn__complete">
-        <img src="./images/icon-check.svg" alt="icon check" />
-      </button>
-      <button class="btn__circle active"></button>
-      10 minutes meditation
-      <button class="btn__close">
-        <img src="./images/icon-cross.svg" alt="icon cross" />
-      </button>
-    </li>
-    <li>
-      <button class="btn__complete">
-        <img src="./images/icon-check.svg" alt="icon check" />
-      </button>
-      <button class="btn__circle active"></button>
-      Read for 1 hour
-      <button class="btn__close">
-        <img src="./images/icon-cross.svg" alt="icon cross" />
-      </button>
-    </li>
-    <li>
-      <button class="btn__complete">
-        <img src="./images/icon-check.svg" alt="icon check" />
-      </button>
-      <button class="btn__circle active"></button>
-      Pick up groceries
-      <button class="btn__close">
-        <img src="./images/icon-cross.svg" alt="icon cross" />
-      </button>
-    </li>
-    <li>
-      <button class="btn__complete">
-        <img src="./images/icon-check.svg" alt="icon check" />
-      </button>
-      <button class="btn__circle active"></button>
-      Complete Todo App on Frontend Mentor
-      <button class="btn__close">
-        <img src="./images/icon-cross.svg" alt="icon cross" />
-      </button>
-    </li>
+    <section class="todo">
+      <picture class="light">
+        <source
+          media="(max-width: 680px)"
+          srcset="./images/bg-mobile-light.jpg"
+        />
+        <img src="./images/bg-desktop-light.jpg" alt="bg light" />
+      </picture>
+      <picture class="dark">
+        <source
+          media="(max-width: 680px)"
+          srcset="./images/bg-mobile-dark.jpg"
+        />
+        <img src="./images/bg-desktop-dark.jpg" alt="bg dark" />
+      </picture>
+      <div class="todo__container">
+        <div class="todo__header">
+          <h2>TODO</h2>
+          <div class="todo__header-button">
+            <button class="head__btn moon">
+              <img src="./images/icon-moon.svg" alt="icon moon" />
+            </button>
+            <button class="head__btn sun">
+              <img src="./images/icon-sun.svg" alt="icon sun" />
+            </button>
+          </div>
+        </div>
+        <div class="head__input">
+          <span class="icon-circle"></span>
+          <input type="text" placeholder="Create a new todo" />
+        </div>
+        <div class="todo__list">
+          <ul>
+            <li>
+              <button class="btn__complete">
+                <img src="./images/icon-check.svg" alt="icon check" />
+              </button>
+              <button class="btn__circle active"></button>
+              Jog around the park 3x
+              <button class="btn__close">
+                <img src="./images/icon-cross.svg" alt="icon cross" />
+              </button>
+            </li>
+            <li>
+              <button class="btn__complete">
+                <img src="./images/icon-check.svg" alt="icon check" />
+              </button>
+              <button class="btn__circle active"></button>
+              10 minutes meditation
+              <button class="btn__close">
+                <img src="./images/icon-cross.svg" alt="icon cross" />
+              </button>
+            </li>
+            <li>
+              <button class="btn__complete">
+                <img src="./images/icon-check.svg" alt="icon check" />
+              </button>
+              <button class="btn__circle active"></button>
+              Read for 1 hour
+              <button class="btn__close">
+                <img src="./images/icon-cross.svg" alt="icon cross" />
+              </button>
+            </li>
+            <li>
+              <button class="btn__complete">
+                <img src="./images/icon-check.svg" alt="icon check" />
+              </button>
+              <button class="btn__circle active"></button>
+              Pick up groceries
+              <button class="btn__close">
+                <img src="./images/icon-cross.svg" alt="icon cross" />
+              </button>
+            </li>
+            <li>
+              <button class="btn__complete">
+                <img src="./images/icon-check.svg" alt="icon check" />
+              </button>
+              <button class="btn__circle active"></button>
+              Complete Todo App on Frontend Mentor
+              <button class="btn__close">
+                <img src="./images/icon-cross.svg" alt="icon cross" />
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
     <script src="app.js"></script>
   </body>
 </html>

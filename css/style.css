@@ -80,6 +80,24 @@ button {
 .todo {
   position: relative;
 }
+.todo .light {
+  display: block;
+}
+.todo .dark {
+  display: none;
+}
+.todo .light.active {
+  display: none;
+}
+.todo .dark.active {
+  display: block;
+}
+.todo .light.active {
+  display: none;
+}
+.todo .dark.active {
+  display: block;
+}
 .todo__container {
   max-width: 540px;
   width: 100%;
@@ -109,17 +127,16 @@ h2 {
 .head__btn.moon {
   display: block;
 }
-.head__btn.moon.active {
-  display: none;
-}
-/* .active {
-} */
-.head__btn.sun.active {
-  display: block;
-}
 .head__btn.sun {
   display: none;
 }
+.head__btn.moon.active {
+  display: none;
+}
+.head__btn.sun.active {
+  display: block;
+}
+
 .head__input {
   margin-block-end: 20px;
   position: relative;
