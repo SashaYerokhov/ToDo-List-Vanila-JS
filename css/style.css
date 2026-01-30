@@ -1,6 +1,6 @@
 :root {
   --blue-500: hsl(220, 98%, 61%);
-  --check-background: linear-gradient #57ddff to #c058f3;
+  --check-background: linear-gradient(to right, #57ddff, #c058f3) 1;
   /* Light Theme */
   --gray-50: hsl(0, 0%, 98%);
   --purple-300: hsl(234, 39%, 85%);
@@ -194,10 +194,26 @@ li {
   cursor: pointer;
   transition: border-color 450ms ease-in-out;
   &:hover {
-    border-color: var(--gray-600);
+    /* 1. Создаем прозрачную рамку нужной толщины */
+    border: 2px solid transparent;
+
+    /* 2. Магия: первый градиент для фона внутри, второй — для рамки */
+    background:
+      linear-gradient(#fff, #fff) padding-box,
+      /* Цвет внутри круга */ linear-gradient(to right, #57ddff, #c058f3)
+        border-box; /* Цвет рамки */
   }
 }
-.btn__strikeout {
+.btn__circle.active {
+  background-color: hsl(270, 85%, 65%);
+  background-image: url("../images/icon-check.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+/* .btn__circle.active {
+  display: none;
+} */
+/* .btn__strikeout {
   width: 25px;
   height: 25px;
   border-radius: 50%;
@@ -207,8 +223,7 @@ li {
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
-  /* display: none; */
-}
+} */
 .btn__close {
   margin-left: auto;
   /* display: none; */
@@ -217,9 +232,9 @@ li {
 .strikeout {
   text-decoration: line-through;
 }
-.strikeout .btn__circle {
+/* .strikeout .btn__circle {
   display: none;
-}
+} */
 .todo__list-buttons {
   width: 100%;
   display: flex;

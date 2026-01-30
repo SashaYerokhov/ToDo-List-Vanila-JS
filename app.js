@@ -46,16 +46,61 @@ sun.addEventListener("click", () => {
 
 const inputTask = document.querySelector(".head__input input");
 // console.log(inputTask);
+const todoBox = document.querySelector(".todo__box");
+// console.log(todoBox);
 
 // получающий localstorage todo-list
 let todos = JSON.parse(localStorage.getItem("todo-list"));
 
 function showTodo() {
-  todos.forEach((todo, id) => {
-    // console.log(id, todo);
-  });
+  let li = "";
+  if (todos) {
+    todos.forEach((todo, id) => {
+      // console.log(id, todo);
+
+      li += `
+            <li id="${id}" draggable="true">
+              <button class="btn__circle"></button>
+               ${todo.name}
+              <button class="btn__close">
+                <img src="./images/icon-cross.svg" alt="icon cross" />
+              </button>
+            </li>
+    `;
+    });
+  }
+
+  todoBox.innerHTML = li;
 }
 showTodo();
+
+function updateStatus(selectedTask) {
+  let btnCircle = document.querySelectorAll(".btn__circle");
+  // console.log(btnCircle);
+  
+  btnCircle.forEach((btnC) => {
+    btnC.addEventListener("click", () => {
+      btnC.classList.toggle("active");
+      // console.log(btnC.parentElement);
+      let selectedTask = btnC.parentElement;
+      // console.log(selectedTask);
+      
+// let taskName = selectedTask
+      if (btnC.classList.contains("active")) {
+        // добавляем - класс - перечеркнутый текст
+        btnC.parentElement.classList.add("strikeout");
+         // меняем статус в ЛокалСторидж
+        todos[selectedTask.id].status = 'completed';
+      } else {
+        btnC.parentElement.classList.remove("strikeout");
+        todos[selectedTask.id].status = 'active';
+      }
+      localStorage.setItem("todo-list", JSON.stringify(todos));
+    });
+  });
+}
+updateStatus();
+
 // При вводет текста и нажатии на клавишу Enter
 inputTask.addEventListener("keyup", (event) => {
   let userTask = inputTask.value.trim();
@@ -67,9 +112,9 @@ inputTask.addEventListener("keyup", (event) => {
       todos = [];
     }
     // Очищаем поле ввода
-    inputTask = '';
+    inputTask.value = "";
     // создаем объект для новой задачи
-    let taskInfo = { name: userTask, status: "pending" };
+    let taskInfo = { name: userTask, status: "active" };
     todos.push(taskInfo); //
     localStorage.setItem("todo-list", JSON.stringify(todos));
 
