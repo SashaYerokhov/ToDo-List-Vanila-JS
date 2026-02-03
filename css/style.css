@@ -236,13 +236,33 @@ li {
   display: none;
 } */
 .todo__list-buttons {
+  position: relative;
   width: 100%;
   display: flex;
   align-items: center;
-  column-gap: 10px;
+  flex-direction: row;
   padding-inline: 20px;
   margin-block-end: 50px;
   color: var(--gray-600);
+}
+.todo__list-buttons-up {
+  /* border: 1px solid green; */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.todo__list-buttons-down {
+  position: absolute;
+  left: 150px;
+  bottom: 18px;
+  /* border: 1px solid red; */
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+.todo__list-buttons-down .color {
+  color: var(--blue-500);
 }
 .todo__list-text {
   margin-right: auto;
@@ -255,7 +275,7 @@ li {
   
 } */
 .btn__clear {
-  margin-left: auto;
+  /* margin-left: auto; */
 }
 .todo__drag {
   color: var(--color-input);
