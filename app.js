@@ -57,7 +57,8 @@ const btnClearCompleted = document.querySelector(".btn__completed");
 
 // получающий localstorage todo-list
 let todos = JSON.parse(localStorage.getItem("todo-list"));
-
+// отдельное свойство для хранения завершённых задач:
+let completedTodos = JSON.parse(localStorage.getItem("completed-list")) || [];
 //
 let currentFilter = "all";
 
@@ -108,64 +109,17 @@ function showTodo(filter) {
 }
 showTodo(currentFilter);
 
-// function updateStatus(selectedTask) {
-//   let btnCircle = document.querySelectorAll(".btn__circle");
-//   // console.log(btnCircle);
-
-//   btnCircle.forEach((btnC) => {
-//     btnC.addEventListener("click", () => {
-//       btnC.classList.toggle("active");
-//       // console.log(btnC.parentElement);
-//       let selectedTask = btnC.parentElement;
-//       // console.log(selectedTask);
-
-//       // let taskName = selectedTask
-//       if (btnC.classList.contains("active")) {
-//         // добавляем - класс - перечеркнутый текст
-//         btnC.parentElement.classList.add("strikeout");
-//         // меняем статус в ЛокалСторидж
-//         todos[selectedTask.id].status = "completed";
-//       } else {
-//         btnC.parentElement.classList.remove("strikeout");
-//         todos[selectedTask.id].status = "pending";
-//       }
-//       localStorage.setItem("todo-list", JSON.stringify(todos));
-//     });
-//   });
-// }
-// updateStatus();
-
-// удаление выбранной задачи из массива/списка задач
-// function deleteTask() {
-//   let btnCloses = document.querySelectorAll(".btn__close");
-//   //   // console.log(btnCloses);
-//   btnCloses.forEach((btnClose) => {
-//     btnClose.addEventListener("click", () => {
-//       // Получаем id из родительского элемента li
-//       let deleteId = btnClose.parentElement.id;
-//       // Удаляем задачи из массива
-//       todos.splice(deleteId, 1);
-//       // Обновляем индексы оставшихся задач
-//       todos.forEach((task, index) => {
-//         // Обновляем id в DOM элементах при следующем рендере
-//         // showTodo() перерисует их с правильными id
-//       });
-//       localStorage.setItem("todo-list", JSON.stringify(todos));
-//       showTodo(currentFilter); // Перерисовываем список
-//       updateStatus(); // Обновляем обработчики для новых элементов
-//       deleteTask(); // Обновляем обработчики для новых элементов
-//     });
-//   });
-// }
-// deleteTask();
-
 function addEventListeners() {
   // Обработчики для кнопок кружков
   document.querySelectorAll(".btn__circle").forEach((btn) => {
     btn.addEventListener("click", function () {
-      const todoItem = this.closest(".todo-item");
-      const id = parseInt(todoItem.dataset.id);
+      // console.log(btn); // при клике на круг - HTML-тег кнопки круга
 
+      const todoItem = this.closest(".todo-item");
+      // console.log(todoItem); // при клике на круг - обращение к родителю тегу - li
+      const id = parseInt(todoItem.dataset.id);
+      // console.log(id); // У li есть data-атрибут - data-id - при клике на круг - номер id
+      // при клике на круг - меняется круг - и текст зачеркивается
       this.classList.toggle("active");
       todoItem.classList.toggle("strikeout");
 
@@ -191,7 +145,10 @@ function addEventListeners() {
       const todoItem = this.closest(".todo-item");
       const id = parseInt(todoItem.dataset.id);
 
+      // Выражение todos.splice(id, 1) удаляет один элемент из массива todos
+      // начиная с позиции (индекса), указанной в переменной id
       todos.splice(id, 1);
+      // обновления в localStorage
       localStorage.setItem("todo-list", JSON.stringify(todos));
       showTodo(currentFilter);
       updateCounter(); // ← Добавлено в showTodo
@@ -226,9 +183,8 @@ function clearCompletedTasks() {
 
   // Сохраняем в localStorage
   localStorage.setItem("todo-list", JSON.stringify(todos));
-
   // Обновляем отображение
-  showTodo(currentFilter);
+  // showTodo(currentFilter);
   updateCounter();
 }
 
@@ -481,4 +437,5 @@ inputTask.addEventListener("keyup", (event) => {
 
   }
 });
+
  */
