@@ -223,64 +223,6 @@ todoBox.addEventListener("dragstart", (e) => {
     e.dataTransfer.setData("text/plain", e.target.dataset.id);
   }
 });
-/*****************************************************************/
-
-/**
- * // DRAG AND DROP - перетаскивание списка задач
-
-// Переменная для всех задач
-const tasks = document.querySelector("ul");
-// console.log(tasks);
-
-// Переменная для всех li списка
-const liTasks = document.querySelectorAll("li");
-liTasks.forEach((li) => {
-  // при начале перетаскивания добавили класс -
-  // то есть перетаскиваемый пункт - становится немного бледным
-  li.addEventListener("dragstart", (event) => {
-    event.target.classList.add("dragging");
-  });
-  // при конце перетаскивания - удалили класс
-  li.addEventListener("dragend", (event) => {
-    event.target.classList.remove("dragging");
-  });
-});
-
-// console.log(liTasks);
-
-// ручка для перетаскивания других элементов
-tasks.addEventListener("dragover", (event) => {
-  event.preventDefault();
-  // console.log(event.target);
-  const target = event.target.closest("li");
-  const dragItem = document.querySelector(".dragging");
-
-  if (target && target !== dragItem) {
-    const { top, height } = target.getBoundingClientRect();
-
-    //   Метод getBoundingClientRect() в JavaScript является частью API
-    // объектной модели документа (DOM)
-    //  и используется для получения размера и
-    // положения элемента относительно области просмотра.
-    // console.log(top, height); // показывает координаты
-
-    const midPoint = top + height / 2;
-
-    //   Свойство event.clientY содержит в себе расстояние от верхней
-    // границы экрана до курсора во время события на JavaScript.
-    if (event.clientY > midPoint) {
-      target.after(dragItem);
-    } else {
-      target.before(dragItem);
-    }
-  }
-});
-
-tasks.addEventListener("drop", (event) => {
-  event.preventDefault();
-});
- */
-
 todoBox.addEventListener("dragover", (e) => {
   e.preventDefault();
 });
