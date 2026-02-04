@@ -45,7 +45,7 @@ html {
 }
 
 body {
-  max-width: 1440px;
+  max-width: 90rem;
   width: 100%;
   margin: 0 auto;
   min-height: 100vh;
@@ -96,7 +96,7 @@ button {
   display: block;
 }
 .todo__container {
-  max-width: 540px;
+  max-width: 33.75rem;
   width: 100%;
   margin: 0 auto;
   position: absolute;
@@ -108,13 +108,13 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-block-end: 50px;
+  margin-block-end: 3.125rem;
 }
 
 h2 {
   margin-block: 0;
   text-transform: uppercase;
-  letter-spacing: 20px;
+  letter-spacing: 1.25rem;
   color: var(--gray-50);
 }
 
@@ -135,7 +135,7 @@ h2 {
 }
 
 .head__input {
-  margin-block-end: 20px;
+  margin-block-end: 1.25rem;
   position: relative;
 }
 
@@ -147,13 +147,13 @@ input {
   outline: none;
   background-color: var(--bg-input);
   color: var(--color-input);
-  padding-inline-start: 70px;
+  padding-inline-start: 4.375rem;
 }
 
 .icon-circle {
   position: absolute;
-  width: 25px;
-  height: 25px;
+  width: 1.5625rem;
+  height: 1.5625rem;
   border-radius: 50%;
   border: 1px solid var(--color-cirkle);
   top: 30%;
@@ -176,15 +176,15 @@ li {
   height: 65px;
   display: flex;
   align-items: center;
-  column-gap: 15px;
+  column-gap: 0.9375rem;
   border-bottom: 1px solid var(--color-cirkle);
-  padding-inline: 25px;
+  padding-inline: 1.5625rem;
   cursor: pointer;
 }
 
 .btn__circle {
-  width: 25px;
-  height: 25px;
+  width: 1.5625rem;
+  height: 1.5625rem;
   border-radius: 50%;
   border: 1px solid var(--color-cirkle);
   cursor: pointer;
@@ -219,8 +219,8 @@ li {
   display: flex;
   align-items: center;
   flex-direction: row;
-  padding-inline: 20px;
-  margin-block-end: 50px;
+  padding-inline: 1.25rem;
+  margin-block-end: 3.125rem;
   color: var(--gray-600);
 }
 .todo__list-buttons-up {
@@ -235,7 +235,7 @@ li {
   bottom: 18px;
   display: flex;
   align-items: center;
-  column-gap: 10px;
+  column-gap: 0.625rem;
 }
 .todo__list-buttons-down button {
   font-weight: 600;
@@ -253,8 +253,12 @@ li {
 }
 
 .attribution {
-  font-size: 11px;
+  position: absolute;
+  bottom: 0;
+  left: 45%;
+  font-size: 0.7rem;
   text-align: center;
+  font-style: italic;
 }
 .attribution a {
   color: hsl(228, 45%, 44%);
@@ -262,8 +266,8 @@ li {
 
 @media (max-width: 700px) {
   .todo__container {
-    max-width: 330px;
-    margin: 50px auto;
+    max-width: 20.625rem;
+    margin: 3.125rem auto;
     top: 3px;
     left: 3%;
   }
@@ -271,23 +275,22 @@ li {
     font-size: 2rem;
   }
   .todo__header {
-    margin-block-end: 35px;
+    margin-block-end: 2.1875rem;
   }
   .head__input {
-    margin-block-end: 15px;
+    margin-block-end: 0.9375rem;
   }
-  input {
-    height: 50px;
-  }
+  input,
   li {
     height: 50px;
   }
+
   .todo__list-buttons {
     display: block;
   }
   .todo__list-buttons-up {
     height: 50px;
-    margin-block-end: 15px;
+    margin-block-end: 0.9375rem;
   }
   .todo__list-buttons-down {
     width: 100%;
@@ -299,5 +302,8 @@ li {
   }
   .todo__drag {
     padding-block-start: 40px;
+  }
+  .attribution {
+    left: 15%;
   }
 }
